@@ -231,7 +231,12 @@ createBoard()
 
 function check(){
     cards = document.querySelectorAll('img')
-    if(cardsChosen[0]==cardsChosen[1]){
+    if(cardsIds[0]==cardsIds[1]){
+        alert('Была выбрана та же карточка!')
+        cards[cardsIds[0]].setAttribute('src','./images/Рубашка.jpg')
+        cards[cardsIds[1]].setAttribute('src','./images/Рубашка.jpg')
+    }
+    else if(cardsChosen[0]==cardsChosen[1]){
         cards[cardsIds[0]].setAttribute('src','')
         cards[cardsIds[1]].setAttribute('src','')
         cards[cardsIds[0]].removeEventListener('click', flipcard)
