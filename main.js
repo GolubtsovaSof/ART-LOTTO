@@ -265,8 +265,10 @@ function flipcard(){
         cardsIds.push(cardId)
         cardsChosen.push(cardArray[cardId].name)
         this.setAttribute('src', cardArray[cardId].img)
-        if(cardsChosen.length==2){
-            setTimeout(check, 1000)
+        this.onload = function(){
+            if(cardsChosen.length==2){
+                setTimeout(check, 1000)
+            }
         }
     }
 }
