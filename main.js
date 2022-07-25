@@ -237,8 +237,10 @@ function check(){
         cards[cardsIds[1]].setAttribute('src','./images/Рубашка.jpg')
     }
     else if(cardsChosen[0]==cardsChosen[1]){
-        cards[cardsIds[0]].setAttribute('src','')
-        cards[cardsIds[1]].setAttribute('src','')
+        cards[cardsIds[0]].removeAttribute('src')
+        cards[cardsIds[1]].removeAttribute('src')
+        cards[cardsIds[0]].setAttribute('background-color', 'black')
+        cards[cardsIds[1]].setAttribute('background-color', 'black')
         cards[cardsIds[0]].removeEventListener('click', flipcard)
         cards[cardsIds[1]].removeEventListener('click', flipcard)
         Score++
