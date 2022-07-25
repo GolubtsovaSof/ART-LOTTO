@@ -260,12 +260,14 @@ function check(){
 }
 
 function flipcard(){
-    const cardId = this.getAttribute('data-id')
-    cardsIds.push(cardId)
-    cardsChosen.push(cardArray[cardId].name)
-    this.setAttribute('src', cardArray[cardId].img)
-    if(cardsChosen.length==2){
-        setTimeout(check, 1000)
+    if(cardsChosen.length<2){
+        const cardId = this.getAttribute('data-id')
+        cardsIds.push(cardId)
+        cardsChosen.push(cardArray[cardId].name)
+        this.setAttribute('src', cardArray[cardId].img)
+        if(cardsChosen.length==2){
+            setTimeout(check, 1000)
+        }
     }
 }
 
