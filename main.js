@@ -1,7 +1,3 @@
-window.addEventListener('load', () => { /* Страница загружена, включая все ресурсы */
-  const preloader = document.querySelector('.preloader') /* находим блок Preloader */
-  preloader.classList.add('preloader_hidden') /* добавляем ему класс для скрытия */
-})
 const cardArray = [
     {
         name:'Всадница',
@@ -237,19 +233,19 @@ function check(){
     cards = document.querySelectorAll('img')
     if(cardsIds[0]==cardsIds[1]){
         alert('Была выбрана та же карточка!')
-        cards[cardsIds[0]].setAttribute('src','./images/Рубашка.jpg')
-        cards[cardsIds[1]].setAttribute('src','./images/Рубашка.jpg')
+        cards[cardsIds[0]].src = './images/Рубашка.jpg'
+        cards[cardsIds[1]].src = './images/Рубашка.jpg'
     }
     else if(cardsChosen[0]==cardsChosen[1]){
-        cards[cardsIds[0]].setAttribute('src', './images/black.jpg')
-        cards[cardsIds[1]].setAttribute('src', './images/black.jpg')
+        cards[cardsIds[0]].src = './images/black.jpg'
+        cards[cardsIds[1]].src = './images/black.jpg'
         cards[cardsIds[0]].removeEventListener('click', flipcard)
         cards[cardsIds[1]].removeEventListener('click', flipcard)
         Score++
     }
     else{
-        cards[cardsIds[0]].setAttribute('src','./images/Рубашка.jpg')
-        cards[cardsIds[1]].setAttribute('src','./images/Рубашка.jpg')
+        cards[cardsIds[0]].src = './images/Рубашка.jpg'
+        cards[cardsIds[1]].src = './images/Рубашка.jpg'
     }
     if(Score == cardArray.length/2){
         setTimeout(alert('Ура! Победа!'), 500)
@@ -267,8 +263,10 @@ function flipcard(){
         cardsIds.push(cardId)
         cardsChosen.push(cardArray[cardId].name)
         this.setAttribute('src', cardArray[cardId].img)
-        if(cardsChosen.length==2){
-            setTimeout(check, 1000)
-        }
+        this.onload = function(){
+            if(cardsChosen.length==2){
+                setTimeout(check, 1000)
+            }
     }
+}
 }
